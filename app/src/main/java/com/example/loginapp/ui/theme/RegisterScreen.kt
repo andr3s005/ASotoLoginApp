@@ -62,7 +62,7 @@ fun RegisterScreen(
         Surface(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top=160.dp),
+                .padding(top=180.dp),
             color = Color.White,
             shape = RoundedCornerShape(topStart = 48.dp, topEnd = 48.dp),
             shadowElevation = 8.dp

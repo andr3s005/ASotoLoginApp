@@ -17,31 +17,33 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import coil3.compose.AsyncImage
+
 @Composable
 fun LoginScreen(
     onNavigateToRegister: () -> Unit
 ) {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    val logoURl = "https://static.wikia.nocookie.net/transformers/images/1/1e/Simbolo_Autobot.png/revision/latest?cb=20171219185501&path-prefix=es"
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
     ){
-        Text(
-            "Login",
-            color = Color.White,
-            fontSize = 32.sp,
-            fontWeight = FontWeight.Bold,
+        AsyncImage(
+            model = logoURl,
+            contentDescription = "Logo de la aplicación",
             modifier = Modifier
+                .size(140.dp)
                 .align(Alignment.TopCenter)
-                .padding(top=80.dp, start = 44.dp)
+                .padding(top=60.dp, start = 44.dp)
         )
         Surface(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(top=160.dp),
+                .padding(top=180.dp),
             color = Color.White,
             shape = RoundedCornerShape(topStart = 48.dp, topEnd = 48.dp),
             shadowElevation = 8.dp
