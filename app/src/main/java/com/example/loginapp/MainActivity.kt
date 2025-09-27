@@ -15,9 +15,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.loginapp.ui.theme.LoginAppTheme
-import com.example.loginapp.ui.theme.Register
+import com.example.loginapp.ui.theme.RegisterScreen
+import com.example.loginapp.ui.theme.LoginScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,21 +32,19 @@ class MainActivity : ComponentActivity() {
 
                     NavHost(
                         navController = navController,
-                        startDestination = LoginScreen
+                        startDestination = "login"
                     ){
-                        composable<LoginScreen>{
+                        composable("login") {
                             LoginScreen(
                                 onNavigateToRegister = {
-                                    navController.navigate(RegisterScreen)
+                                    navController.navigate("register")
                                 }
                             )
                         }
 
-                        composable<RegisterScreen>{
+                        composable("register") {
                             RegisterScreen(
-                                onBack = {
-                                    navController.popBackStack()
-                                }
+                                onBack = { navController.popBackStack() }
                             )
                         }
                     }
@@ -54,18 +54,5 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    LoginAppTheme {
-        Greeting("Android")
-    }
-}
+
