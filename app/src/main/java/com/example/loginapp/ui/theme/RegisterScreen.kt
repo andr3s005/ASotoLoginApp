@@ -55,7 +55,7 @@ fun RegisterScreen(
                 text = "Sign Up",
                 color= Color.White,
                 fontSize = 32.sp,
-                fontWeight = FontWeight.Bold
+                fontWeight = FontWeight.Bold,
             )
         }
 
@@ -134,33 +134,5 @@ fun RegisterScreen(
     }
 }
 
-@Composable
-fun CustomStyledTextField(
-    value: String,
-    onValueChange: (String) -> Unit,
-    label : String,
-    isPassword : Boolean = false,
-    keyboardType: KeyboardType = KeyboardType.Text
-){
-    TextField(
-        value = value,
-        onValueChange = onValueChange,
-        label = { Text(label)},
-        singleLine = true,
-        colors = TextFieldDefaults.colors(
-            focusedContainerColor = Color(0xFFF0F0F0),
-            unfocusedContainerColor = Color(0xFFF0F0F0),
-            focusedIndicatorColor = Color.Transparent,
-            unfocusedIndicatorColor = Color.Transparent,
-            disabledIndicatorColor = Color.Transparent,
-            errorIndicatorColor = Color.Transparent,
-            focusedTextColor = Color.Black,
-            unfocusedTextColor = Color.Black
-        ),
-        shape = RoundedCornerShape(12.dp),
-        modifier = Modifier.fillMaxWidth(),
-        visualTransformation = if (isPassword) PasswordVisualTransformation() else VisualTransformation.None,
-        keyboardOptions = KeyboardOptions(keyboardType = keyboardType)
-    )
-}
+
 
